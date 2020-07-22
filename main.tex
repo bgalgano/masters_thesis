@@ -1,0 +1,104 @@
+% ========================
+% This is the main LaTeX
+% source file for 'main.pdf'
+% ========================
+
+\documentclass{fiskthesis}
+\usepackage[page,title,titletoc]{appendix}
+\usepackage{color,soul}
+\usepackage{deluxetable}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks=false,
+    linkcolor={blue}
+}
+
+% IMPORT CUSTOM COMMANDS
+\input{custom}
+
+% Needed for `align' environment
+\usepackage{ulem}
+
+% Needed for block quotes:
+%\begin{displayquote}
+\usepackage{csquotes}
+
+\newcommand{\vv}[1]{\overrightarrow{#1}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+
+\newcommand{\llf}{\text{LLF}}
+\newcommand{\hll}{\text{HLL}}
+\newcommand{\hllc}{\text{HLLC}}
+
+\newcommand{\bs}{\boldsymbol}
+\renewcommand{\th}{\text{th}}
+
+\newcommand{\ee}[1]{{\color{red}{(EE: #1)}}}
+\newcommand{\am}[1]{{\color{blue}{(AM: #1)}}}
+\newcommand{\sd}[1]{{\color{magenta}{(SD: #1)}}}
+
+\newcommand{\citeme}{\textcolor{red}{(CITATION) }}
+
+%%%
+
+\begin{document}
+
+\begin{ThesisTitle}
+\Title{The Infrared Colors of Dwarf and Giant Stars}
+\Department{Life and Physical Sciences}
+\Author{Brianna S. Galgano}
+\GradDate{August}{2020}
+\end{ThesisTitle}
+
+\frontmatter % Forces i,ii,iii, etc. page numbering
+
+\include{Text/MiscText/Title}
+\include{Text/MiscText/Approval}
+
+\doublespacing
+
+\include{Text/MiscText/Acknowledgements}
+\include{Text/Chapters/0_Abstract}
+
+\singlespacing
+
+\tableofcontents
+
+\listoftables
+
+\listoffigures
+
+\mainmatter % Forces 1,2,3, etc. page numbering and chapter labels
+
+\doublespacing
+
+\chapnum
+\newpage
+
+\include{Text/Chapters/1_Introduction}
+
+\include{Text/Chapters/2_Data}
+
+\include{Text/Chapters/3_Methods}
+
+\include{Text/Chapters/4_Results}
+
+\include{Text/Chapters/5_Discussion}
+
+\include{Text/Chapters/6_Conclusion}
+
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\pagestyle{apphead}
+
+\begin{appendices}
+\include{Text/Appendices/Appendix1}
+\end{appendices}
+
+\backmatter
+
+\bibliographystyle{aasjournal}
+\bibliography{citations.bib}
+
+\end{document}
