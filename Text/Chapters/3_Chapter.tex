@@ -1,12 +1,14 @@
-\chapter{Methods | how to estimate luminosity class from color} \label{chap:METHODS}
-% ========================
+\chapter{Identifying dwarf and giant color separations} \label{chap:METHODS}
+% ==========================================
 
 In this section, we present how we go from the original Michigan Spectral Catalogs to estimating probabilities of luminosity class for a star with a known spectral type and unknown luminosity class.
 
-\section{``Cleaning'' the Michigan Spectral Catalog and cross-matching with 2MASS/WISE} \label{sec:clean_michigan}
+\section{Filtering the Michigan Spectral Atlases} \label{sec:clean_michigan}
 
 We remove from the Michigan catalogs all targets with peculiar and/or mixed spectral types and luminosity classes (e.g. ``M2/3III'', ``G2e+K0V'', etc.).  The  number of targets in each Michigan Catalog with both a single spectral type and luminosity class assignment are typically $>$50\% and are listed in Table 1, with a total of $\sim$87,000 stars. We plot in Figure 1 the distribution of spectral types as a function of luminosity class of the ``cleaned'' sample from the Michigan Spectral Catalogs.  These histograms include the Michigan Spectral Atlas stars that do not have good positional cross-matches and photometry from 2MASS and WISE as described in ${\S}$2.2.
+\section{Incorporating 2MASS/WISE photometry}
 
+\section{Calculating color medians and standard deviations}
 \begin{figure}[t]
     \begin{center}
         \includegraphics[width=1.0\textwidth]{Figures/populations/hist-spt-count.pdf}
@@ -14,9 +16,14 @@ We remove from the Michigan catalogs all targets with peculiar and/or mixed spec
 \caption{The distribution of the Michigan Spectral Catalogs as a function of spectral type on the horizontal axis, after the removal of peculiar and/or mixed spectral types.  The different colors correspond to the different luminosity classes.  From bottom to top: V (red), IV (yellow), III (purple), II (cyan) and I (green).  The gaps in the histograms at particular spectral types (e.g. F1, K7-K9) indicate that this spectral type was not used for typing in the Michigan Spectral Catalogs.}
 \end{figure}
 
-\section{Color as a probability density function}
-% a lot of the text in 3.2 should go to figure 2/3 (median plot), fitting t-dist
-\label{subsec:quant_color}
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\textwidth]{Figures/populations/hist-b-vs-count.png}
+    \caption{A histogram of spectra counts across all galactic latitudes ($b$) from the Michigan Spectral Atlas, which was filtered as described according to Section \ref{sec:clean_michigan}. There is no overdensity of either the two individual luminosity groups (dwarfs vs giant).}
+    \label{fig:b-vs-count}
+\end{figure}
+
+
 
 \begin{figure}
     \centering
@@ -50,9 +57,6 @@ From the photometry in ${\S}$2.2, for all stars that match a single spectral typ
 \caption{The same as Figure 2, except for $J-W1$}
 \end{figure*}
 
-\section{How to infer luminosity class}
-
-We search Tables 2-22 to identify colors where the luminosity class median colors differ substantially for a given contiguous range of spectral types.  We quantify 'substantially' when the difference in luminosity class median exceeds the standard deviation for the main sequence luminosity class $V$.  
 
 
 

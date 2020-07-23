@@ -9,10 +9,12 @@
 \usepackage{deluxetable}
 \usepackage{hyperref}
 \usepackage{xcolor}
-\hypersetup{
-    colorlinks=false,
-    linkcolor={blue}
-}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{caption}
+\newcolumntype{L}{>{\begin{math}}l<{\end{math}}}%
+\newcolumntype{C}{>{\begin{math}}c<{\end{math}}}%
+\newcolumntype{R}{>{\begin{math}}r<{\end{math}}}%
 
 % IMPORT CUSTOM COMMANDS
 \input{custom}
@@ -78,13 +80,13 @@
 
 \include{Text/Chapters/1_Introduction}
 
-\include{Text/Chapters/2_Data}
+\include{Text/Chapters/2_Chapter}
 
-\include{Text/Chapters/3_Methods}
+\include{Text/Chapters/3_Chapter}
 
-\include{Text/Chapters/4_Results}
+\include{Text/Chapters/4_Chapter}
 
-\include{Text/Chapters/5_Discussion}
+\include{Text/Chapters/5_Chapter}
 
 \include{Text/Chapters/6_Conclusion}
 
@@ -94,6 +96,8 @@
 
 \begin{appendices}
 \include{Text/Appendices/Appendix1}
+%\include{Text/Appendices/Appendix2}
+
 \end{appendices}
 
 \backmatter
