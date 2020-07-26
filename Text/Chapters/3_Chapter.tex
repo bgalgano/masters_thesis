@@ -1,66 +1,53 @@
-\chapter{Identifying dwarf and giant color separations} \label{chap:METHODS}
-% ==========================================
+\chapter{Significance of \jwone and \jwtwo for GK stars}\label{chap:sig_of_colors}
+% TEXT ==========================================
 
-In this section, we present how we go from the original Michigan Spectral Catalogs to estimating probabilities of luminosity class for a star with a known spectral type and unknown luminosity class.
+We identify by eye that \jwone and \jwtwo present a significant separation in color between dwarfs and (sub-)giants for all G and early K spectral types. This trend in \jwone and \jwtwo with luminosity class for G and early K dwarfs may extend to later spectral types (M stars), but the limited number of M dwarfs in the Michigan Spectral Atlases precludes a robust determination.
 
-\section{Filtering the Michigan Spectral Atlases} \label{sec:clean_michigan}
+The separation is approximately one robust standard deviation of the colors for a given spectral type and luminosity class. For example, the color distribution of G5V stars is $J-W2=0.405\pm0.078$, for G5III stars is $J-W2=0.573\pm0.055$, a difference of $0.168\pm0.095$ of more than one standard deviation. While there is significant overlap in the colors of stars of different luminosity classes, this still permits a probabilistic assignment of luminosity class which we explore further in Chapter \ref{chap:identify_color_sep}.
 
-We remove from the Michigan catalogs all targets with peculiar and/or mixed spectral types and luminosity classes (e.g. ``M2/3III'', ``G2e+K0V'', etc.).  The  number of targets in each Michigan Catalog with both a single spectral type and luminosity class assignment are typically $>$50\% and are listed in Table 1, with a total of $\sim$87,000 stars. We plot in Figure 1 the distribution of spectral types as a function of luminosity class of the ``cleaned'' sample from the Michigan Spectral Catalogs.  These histograms include the Michigan Spectral Atlas stars that do not have good positional cross-matches and photometry from 2MASS and WISE as described in ${\S}$2.2.
-\section{Incorporating 2MASS/WISE photometry}
+The robust standard deviation of the colors of a given spectral type and luminosity class in the spectral type range of interest (G0-K5) is consistent with typical WISE and 2MASS magnitude measurement uncertainties ($\sim$0.05--0.15 mag). Thus, this implies the overlap in the dwarf-giant color distributions may be due to measurement uncertainties rather than a physical origin.  More precise color measurements may increase the statistical significance of this separation between dwarfs and (sub-)giants in color.
 
-\section{Calculating color medians and standard deviations}
-\begin{figure}[t]
-    \begin{center}
-        \includegraphics[width=1.0\textwidth]{Figures/populations/hist-spt-count.pdf}
-    \end{center}
-\caption{The distribution of the Michigan Spectral Catalogs as a function of spectral type on the horizontal axis, after the removal of peculiar and/or mixed spectral types.  The different colors correspond to the different luminosity classes.  From bottom to top: V (red), IV (yellow), III (purple), II (cyan) and I (green).  The gaps in the histograms at particular spectral types (e.g. F1, K7-K9) indicate that this spectral type was not used for typing in the Michigan Spectral Catalogs.}
-\end{figure}
+In the next sections, we turn to highlighting sample applications of this utilizing this primary result for use in distinguishing dwarfs from giants.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=1.0\textwidth]{Figures/populations/hist-b-vs-count.png}
-    \caption{A histogram of spectra counts across all galactic latitudes ($b$) from the Michigan Spectral Atlas, which was filtered as described according to Section \ref{sec:clean_michigan}. There is no overdensity of either the two individual luminosity groups (dwarfs vs giant).}
-    \label{fig:b-vs-count}
-\end{figure}
+\section{Possible origins of dwarf-giant color separation}
 
+We have considered two possibilities for this observable difference in the infrared colors of dwarf stars compared to giant stars. We have considered that the source of the color difference is due to (1) observational bias from reddening due to galactic extinction, or is (2) an astrophysical phenomenon that helps underline the intrinsic separation of dwarfs from giant stars. We stipulate that while there is a possibility both (1) and (2) could be contributing to the color difference we do see among different luminosity classes, it is more likely that (2) is the more dominant effect, which has interesting astrophysical implications in characterizing dwarfs from giants stars. We have examined the medians magnitudes of colors \jwone and \jwtwo across the galactic latitude coordinate $b$, and saw no strong dependence for $-15<b<15$ where extinction is greatest, and may have contributed more reddened colors that could have explained this difference (Figure \ref{fig:color-vs-b}).
 
+\section{Sample applications}
+We present two potential applications of using the dwarf-giant difference in colors \jwone and \jwtwo, reduced proper motions in J-band (\ref{subsec:RPM}) and combining color probabilities with a galactic model ()
 
-\begin{figure}
-    \centering
-    \includegraphics[width=1.0\textwidth,clip=true]{Figures/periodic/periodic-t-pdf_J_W1.png}
-    \caption{Caption}
-    \label{fig:periodic-pdf-jw1}
-\end{figure}
+\subsection{Reduced proper motions} \label{subsec:RPM}
+All of the Michigan stars are HD stars with GAIA parallaxes and proper motions.  We cross-correlate the Michigan catalog with the GAIA First Data Release \citep[]{gaia1,gaia2,Lindegren2016}.  In Figure 8, we plot the standard reduced proper motion (${rpm}_J$) for the Michigan stars as a function of \jwtwo for spectral types from G0--K5 and luminosity class, using GAIA proper motions.  In Figure 9, we plot the Absolute J-band magnitudes for the Michigan stars as function of \jwtwo for spectral types from G0--K5 and luminosity class, using GAIA parallaxes.3
+\subsection{Galactic population model} \label{subsec:galactic_model}
+All of the Michigan stars are HD stars with GAIA parallaxes and proper motions.  We cross-correlate the Michigan catalog with the GAIA First Data Release \citep[]{gaia1,gaia2,Lindegren2016}.  In Figure 8, we plot the standard reduced proper motion (${rpm}_J$) for the Michigan stars as a function of \jwtwo for spectral types from G0--K5 and luminosity class, using GAIA proper motions.  In Figure 9, we plot the Absolute J-band magnitudes for the Michigan stars as function of \jwtwo for spectral types from G0--K5 and luminosity class, using GAIA parallaxes.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=1.0\textwidth,clip=true]{Figures/periodic/periodic-t-pdf_J_W2.png}
-    \caption{Same as Figure \ref{fig:periodic-pdf-jw1}, but for \jwtwo.}
-    \label{fig:periodic-pdf-jw2}
-\end{figure}
+From these plots, we see that the classification success rate of the Michigan catalog is high, but not perfect.
 
+We are considering also further finessing the color-luminosity class probability by relating color with position in the sky using a a synthetic galactic model of the Milky Way called TRILEGAL, but leave this for future work. Incorporating giant/dwarf population statistics, such as luminosity class number density as a function sky area, should help to further improve color as a tool to predict luminosity class, and for application to future surveys.
 
-From the photometry in ${\S}$2.2, for all stars that match a single spectral type and luminosity class, have good photometry measurements, and have a good positional cross-match between 2MASS and WISE, we calculate the median and robust standard deviation of stellar colors $J-H$, $J-K_s$, $H-K_s$, $J-W1$, $J-W2$, $J-W3$, $J-W4$, $H-W1$, $H-W2$, $H-W3$, $H-W4$, $K_s-W1$, $K_s-W2$, $K_s-W3$, $K_s-W4$, $W1-W2$, $W1-W3$, $W1-W4$, $W2-W3$, $W2-W4$, and $W3-W4$.  When only three stars are in a given spectral type and luminosity class bin for a given color, we compute the standard deviation rather than the robust standard deviation.  When only two stars are in a given spectral type and luminosity class bin for a given color, we compute the range rather than the robust standard deviation.  When only one star has a given spectral type and luminosity class, we do not compute a distribution range.  When zero stars are in a given spectral type and luminosity class, we do not compute a distribution median.  The colors and standard deviations of the Michigan Spectral Catalogs are listed as a function of spectral type and luminosity class in Tables 2-21, and plotted in Figures 2-4.
+We pick an ecliptic pole field as an application of calculating probabilistic luminosity class membership in a Bayesian framework.
 
+In particular, our priors are the mean and robust standard deviation of colors of each luminosity class. We use the TRILEGAL source counts to normalize these distributions with respect to one another, and integrate over a sample photometric measurement and its uncertainty.
+
+% FIGURES ==========================================
 
 \begin{figure*}[t]
-\centering
-\includegraphics[width=1.0\textwidth,clip=true]{Figures/subtype_bar/SPT_J-W2.png}
- 
-\caption{The color of stars in the Michigan Spectral Catalogs as a function of spectral type on the horizontal axis, and \jwtwo on the vertical axis, after the removal of peculiar and/or mixed spectral types (see ${\S}$3.1). The different colors correspond to the different luminosity classes -- V (red), IV (yellow), III (purple), II (cyan) and I (green).  The vertical error bars generally correspond to the robust standard deviation of the \jwtwo color of stars within a given spectral type and luminosity class, unless there are only three or fewer stars, in which the error bars represent a standard deviation or range. (see ${\S}$3.2).}
+  \begin{center}
+      \includegraphics[width=1.0\textwidth,clip=true]{Figures/absolute_j/plot-J-W2-G0-K5-b15-0.png}
+ \end{center}
+ \caption{Reduced $J$-band proper motion plot using \textit{GAIA} DR1 proper motions as a function of $J-W2$ color for Michigan Spectral Atlas stars with spectra types between G0 and K5 and galactic latitudes $|b|>15\deg$.  The different colors correspond to the different luminosity classes, and show a relatively clear separation between dwarfs and (sub-)giants.}
 \end{figure*}
 
 \begin{figure*}[t]
-%\ContinuedFloat
-\centering  
-\includegraphics[width=1.0\textwidth,clip=true]{Figures/subtype_bar/SPT_J-W1.png}
-\caption{The same as Figure 2, except for $J-W1$}
+  \begin{center}
+      \includegraphics[width=1.0\textwidth,clip=true]{Figures/absolute_j/plot-J-W2-G0-K5-b15-1.png}
+ \end{center}
+ \caption{The same as the previous figure, but for absolute $J$ band magnitudes using \textit{GAIA} DR1 parallaxes, validating the Michigan Spectral Atlas luminosity classes and the reduced proper motion approach.}
 \end{figure*}
 
-
-
-
-
-
-
-
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\textwidth,clip=true]{Figures/populations/plot-b-vs-color.png}
+    \caption{This figure displays the median values of color magnitude \jwone and \jwtwo across galactic latitude for different luminosity classes. Colors magnitude and luminosity class information originate from a cross-matched table of WISE/2MASS with the Michigan Spectral Atlas, and no extinction correction has been applied. As expected, giants are redder than dwarfs on average for all galactic latitudes. We estimate that any reddening effect due to extinction should be strongest at the sky area that covers the galactic plane where gas clouds are concentrated, at approximately $-15<b<15$. Median color does not typically spike in the galactic plane for both \jwone and \jwtwo while in the same group, which suggests that the color separation between dwarfs and giants is not due to extinction, but from astrophysical phenomenon, such as gravity-sensitive lines in J-band.}
+    \label{fig:color-vs-b}
+\end{figure}

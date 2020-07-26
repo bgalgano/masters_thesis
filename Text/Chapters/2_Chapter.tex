@@ -1,20 +1,51 @@
-\chapter{Spectral and infrared photometry catalogs}\label{chap:DATA}
-% ==========================================
+\chapter{Identifying dwarf and giant color separations} \label{chap:identify_color_sep}
+% TEXT ==========================================
 
-We used archival information to construct our sample of spectroscopic and infrared photometric measurements of nearby stars, and we discuss each in turn.
 
-\section{Michigan Spectral Atlases} \label{sec:michigan}
+We present how we go from the original Michigan Spectral Catalogs \citep{Houk1975,Houk1978,Houk1982,Houk1988,Houk1999} and filter the catalogs for ``cleaner'' spectral sub-types and luminosity classes. We also discuss how we cross-matched these cleaned Michigan targets to infrared catalogs 2MASS and WISE \citep{2MASS,ALLWISE}. By combining both infrared photometry and luminosity/spectral class information from all three sources, we are able to conduct analyze the color separation among dwarfs and giants of different spectral types for different colors.
 
+\section{Combining spectral and photometric data} \label{sec:cross-matching}
 We utilize the five volumes of the Michigan Spectral atlases \citep[]{Houk1975, Houk1978, Houk1982,Houk1988,Houk1999}. These catalogs characterize 150,952 HD stars over a range in B1900 declinations (Table 1) for HD numbers $<$225300 (e.g., not including extensions to the HD catalog) with photographic magnitudes as faint as $\sim$9.
 
 The spectra were exposed on objective-prism plates at the Michigan Curtis Schmidt Telescope at Cerro Tololo Inter-American Observatory. The spectra, with an average resolution of $\sim$2$\circ/mm$, were classified visually in spectral type and luminosity class (e.g. ``G0IV'', ``K2V'', etc.).  
 
-\section{2MASS and WISE Photometry} \label{subsec:2MASS_WISE}
+We remove from the Michigan catalogs all targets with peculiar and/or mixed spectral types and luminosity classes (e.g. ``M2/3III'', ``G2e+K0V'', etc.).  The  number of targets in each Michigan Catalog with both a single spectral type and luminosity class assignment are typically $>$50\% and are listed in Table 1, with a total of $\sim$87,000 stars. We plot in Figure \ref{table:michigan_populations} the distribution of spectral types as a function of luminosity class of the ``cleaned'' sample from the Michigan Spectral Catalogs.  These histograms include the Michigan Spectral Atlas stars that do not have good positional cross-matches and photometry from 2MASS and WISE. 
 
 All entries of the Michigan spectral atlas of HD stars were cross-matched with 2MASS \citep{Skrutskie2006} by using the SIMBAD web tool\footnote{Available at \url{http://simbad.u-strasbg.fr}} to obtain their 2MASS designations. A cross-match to AllWISE \cite{ALLWISE,ALLWISE-dwarfs} was then performed with the method described by \cite{BANYAN}. In summary, AllWISE entries within 3\arcsec of the 2MASS position were already identified in the AllWISE catalog available at the NASA/IPAC Science Archive\footnote{Available at \url{http://irsa.ipac.caltech.edu/}}. Cross-matches at further separations were performed by identifying the AllWISE entry nearest to each 2MASS position, and verifying that no other 2MASS entry is closer to the resulting AllWISE position.
 
-As a result of our positional cross-matching vetting and photometric quality criteria, not all stars in our sample have photometric measurements in all bands, and the counts vary from color-to-color.  For a given color, there are on the order of $\sim$20,000 stars from the Michigan Spectral Atlas with good position cross-matches and photometry from 2MASS and WISE.
+As a result of our positional cross-matching vetting and photometric quality criteria, not all stars in our sample have photometric measurements in all bands, and the counts vary from color-to-color. For a given color, there are \bincount stars from the Michigan Spectral Atlas with good position cross-matches and photometry from 2MASS and WISE. There are specific limitations to our color analysis due to the scarcity of stars in some spectral/luminosity class bins, which is described in the next section, \ref{sec:color_stats}.
 
+\section{Calculating color statistics} \label{sec:color_stats}
+In this section, we review two main methods of conducting our analysis of colors among dwarfs versus giant stars. For both methods, we bin stars by both (1) all available spectral sub-types in common with all catalogs and (2) all luminosity classes. For \ref{subsec:median_stats}, we bin by individual luminosity classes ($I$,$II$,$III$,$IV$,$V$). For \ref{subsec:tdist_stats} we bin by two separate luminosity class groups; dwarfs are specifically luminosity class $V$ and giants are all other luminosity classes ($II$,$III$,$IV$). Limitations for both analyses are mainly due to the scarcity of stars for some spectral sub-types and luminosity class bins. 
 
+\subsection{Median and robust standard deviation} \label{subsec:median_stats}
+From the photometry in Chapter \ref{subsec:2MASS_WISE}, for all stars that match a single spectral type and luminosity class, have good photometry measurements, and have a good positional cross-match between 2MASS and WISE, we calculate the median and robust standard deviation of stellar colors $J-H$, $J-K_s$, $H-K_s$, $J-W_1$, $J-W_2$, $J-W3$, $J-W_4$, $H-W_1$, $H-W_2$, $H-W_3$, $H-W_4$, $K_s-W_1$, $K_s-W_2$, $K_s-W_3$, $K_s-W4$, $W1-W2$, $W_1-W_3$, $W_1-W_4$, $W_2-W_3$, $W_2-W_4$, and $W_3-W_4$.  When only three stars are in a given spectral type and luminosity class bin for a given color, we compute the standard deviation rather than the robust standard deviation.  When only two stars are in a given spectral type and luminosity class bin for a given color, we compute the range rather than the robust standard deviation.  When only one star has a given spectral type and luminosity class, we do not compute a distribution range.  When zero stars are in a given spectral type and luminosity class, we do not compute a distribution median.  The colors and standard deviations of the Michigan Spectral Catalogs are listed as a function of spectral type and luminosity class in Tables 2-21, and plotted in Figures 2-4.
 
+\subsection{Fitting to a probability function} \label{subsec:tdist_stats}
+In this section we provide an additional method of identifying color separation, which is to fit color magnitudes in each spectral/luminosity bin to a Student's t-distribution. Fitting to this type of distribution is also likely to be a more reliable method in dealing with the scarcity of stars in some bins than medians/robust standard deviations alone. As the sample size increases, a Student's t-distribution will approach a normal distribution, which is the expected behavior for the colors of stars for a given spectral type or luminosity class.
 
+A Student's t-distribution is simply defined as the following:
+
+\begin{equation} \label{eq:students-t}
+   \gamma 
+\end{equation}
+% FIGURES ========================================
+
+\begin{figure}[t]
+    \centering
+        \includegraphics[width=1.0\textwidth]{Figures/populations/hist-spt-count.pdf}
+\caption{The distribution of the Michigan Spectral Catalogs as a function of spectral type on the horizontal axis, after the removal of peculiar and/or mixed spectral types.  The different colors correspond to the different luminosity classes.  From bottom to top: V (red), IV (yellow), III (purple), II (cyan) and I (green).  The gaps in the histograms at particular spectral types (e.g. F1, K7-K9) indicate that this spectral type was not used for typing in the Michigan Spectral Catalogs.}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\textwidth]{Figures/populations/hist-b-vs-count.png}
+    \caption{A histogram of spectra counts across all galactic latitudes ($b$) from the Michigan Spectral Atlas, which was filtered as described according to Section \ref{sec:clean_michigan}. There is no overdensity of either the two individual luminosity groups (dwarfs vs giant).}
+    \label{fig:b-vs-count}
+\end{figure}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=1.0\textwidth,clip=true]{Figures/subtype_bar/SPT_J-W2.png}
+\caption{The color of stars in the Michigan Spectral Catalogs as a function of spectral type on the horizontal axis, and \jwtwo on the vertical axis, after the removal of peculiar and/or mixed spectral types (see ${\S}$3.1). The different colors correspond to the different luminosity classes -- V (red), IV (yellow), III (purple), II (cyan) and I (green).  The vertical error bars generally correspond to the robust standard deviation of the \jwtwo color of stars within a given spectral type and luminosity class, unless there are only three or fewer stars, in which the error bars represent a standard deviation or range. (see ${\S}$3.2).}
+\end{figure*}

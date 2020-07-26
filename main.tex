@@ -11,7 +11,10 @@
 \usepackage{xcolor}
 \usepackage{tabularx}
 \usepackage{booktabs}
-\usepackage{caption}
+\usepackage[font=footnotesize]{caption}
+\usepackage{subfig}
+\usepackage{graphicx}
+
 \newcolumntype{L}{>{\begin{math}}l<{\end{math}}}%
 \newcolumntype{C}{>{\begin{math}}c<{\end{math}}}%
 \newcolumntype{R}{>{\begin{math}}r<{\end{math}}}%
@@ -86,18 +89,15 @@
 
 \include{Text/Chapters/4_Chapter}
 
-\include{Text/Chapters/5_Chapter}
-
-\include{Text/Chapters/6_Conclusion}
-
+\include{Text/Chapters/5_Conclusion}
 
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \pagestyle{apphead}
 
 \begin{appendices}
 \include{Text/Appendices/Appendix1}
-%\include{Text/Appendices/Appendix2}
-
+\include{Text/Appendices/Appendix2}
+\include{Text/Appendices/Appendix3}
 \end{appendices}
 
 \backmatter
