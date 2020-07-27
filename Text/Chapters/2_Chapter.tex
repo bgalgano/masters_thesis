@@ -1,6 +1,5 @@
-\chapter{Identifying dwarf and giant color separations} \label{chap:identify_color_sep}
+\chapter{Identifying dwarf and giant color separations} \label{chap:2}
 % TEXT ==========================================
-
 
 We present how we go from the original Michigan Spectral Catalogs \citep{Houk1975,Houk1978,Houk1982,Houk1988,Houk1999} and filter the catalogs for ``cleaner'' spectral sub-types and luminosity classes. We also discuss how we cross-matched these cleaned Michigan targets to infrared catalogs 2MASS and WISE \citep{2MASS,ALLWISE}. By combining both infrared photometry and luminosity/spectral class information from all three sources, we are able to conduct analyze the color separation among dwarfs and giants of different spectral types for different colors.
 
@@ -19,19 +18,33 @@ As a result of our positional cross-matching vetting and photometric quality cri
 In this section, we review two main methods of conducting our analysis of colors among dwarfs versus giant stars. For both methods, we bin stars by both (1) all available spectral sub-types in common with all catalogs and (2) all luminosity classes. For \ref{subsec:median_stats}, we bin by individual luminosity classes ($I$,$II$,$III$,$IV$,$V$). For \ref{subsec:tdist_stats} we bin by two separate luminosity class groups; dwarfs are specifically luminosity class $V$ and giants are all other luminosity classes ($II$,$III$,$IV$). Limitations for both analyses are mainly due to the scarcity of stars for some spectral sub-types and luminosity class bins. 
 
 \subsection{Median and robust standard deviation} \label{subsec:median_stats}
-From the photometry in Chapter \ref{subsec:2MASS_WISE}, for all stars that match a single spectral type and luminosity class, have good photometry measurements, and have a good positional cross-match between 2MASS and WISE, we calculate the median and robust standard deviation of stellar colors $J-H$, $J-K_s$, $H-K_s$, $J-W_1$, $J-W_2$, $J-W3$, $J-W_4$, $H-W_1$, $H-W_2$, $H-W_3$, $H-W_4$, $K_s-W_1$, $K_s-W_2$, $K_s-W_3$, $K_s-W4$, $W1-W2$, $W_1-W_3$, $W_1-W_4$, $W_2-W_3$, $W_2-W_4$, and $W_3-W_4$.  When only three stars are in a given spectral type and luminosity class bin for a given color, we compute the standard deviation rather than the robust standard deviation.  When only two stars are in a given spectral type and luminosity class bin for a given color, we compute the range rather than the robust standard deviation.  When only one star has a given spectral type and luminosity class, we do not compute a distribution range.  When zero stars are in a given spectral type and luminosity class, we do not compute a distribution median.  The colors and standard deviations of the Michigan Spectral Catalogs are listed as a function of spectral type and luminosity class in Tables 2-21, and plotted in Figures 2-4.
+From the photometry in Chapter \ref{subsec:2MASS_WISE}, for all stars that match a single spectral type and luminosity class, have good photometry measurements, and have a good positional cross-match between 2MASS and WISE, we calculate the median and robust standard deviation of stellar colors $J-H$, $J-K_{s}$, $H-K_{s}$, $J-W_{1}$, $J-W_{2}$, $J-W_{3}$, $J-W_{4}$, $H-W_{1}$, $H-W_{2}$, $H-W_{3}$, $H-W_{4}$, $K_{s}-W_{1}$, $K_{s}-W_{2}$, $K_{s}-W_{3}$, $K_{s}-W_{4}$, $W_{1}-W_{2}$, $W_{1}-W_{3}$, $W_{1}-W_{4}$, $W_{2}-W_{3}$, $W_{2}-W_{4}$, and $W_{3}-W_{4}$.  When only three stars are in a given spectral type and luminosity class bin for a given color, we compute the standard deviation rather than the robust standard deviation.  When only two stars are in a given spectral type and luminosity class bin for a given color, we compute the range rather than the robust standard deviation.  When only one star has a given spectral type and luminosity class, we do not compute a distribution range.  When zero stars are in a given spectral type and luminosity class, we do not compute a distribution median.  The colors and standard deviations of the Michigan Spectral Catalogs are listed as a function of spectral type and luminosity class in \ref{table:color_medians}, and plotted in Figures \ref{fig:median_stick_bar_jw1} and \ref{fig:median_stick_bar_jw2}.
 
 \subsection{Fitting to a probability function} \label{subsec:tdist_stats}
-In this section we provide an additional method of identifying color separation, which is to fit color magnitudes in each spectral/luminosity bin to a Student's t-distribution. Fitting to this type of distribution is also likely to be a more reliable method in dealing with the scarcity of stars in some bins than medians/robust standard deviations alone. As the sample size increases, a Student's t-distribution will approach a normal distribution, which is the expected behavior for the colors of stars for a given spectral type or luminosity class.
+In this section we provide an additional method of identifying color separation, which is to fit color magnitudes in each spectral and luminosity bin to a Student's t-distribution function. Fitting to this type of distribution is also likely to be a more reliable method in dealing with the scarcity of stars in some bins than medians and robust standard deviations alone. As the sample size increases, a Student's t-distribution will approach a normal distribution, which is the expected behavior for the colors of stars within a given spectral type or luminosity class.
 
-A Student's t-distribution is simply defined as the following:
+A Student's t-distribution function is defined as the following:
 
-\begin{equation} \label{eq:students-t}
-   \gamma 
+\begin{equation}
+    t \equiv \frac{\bar{x}-\mu}{s/\sqrt{N}} ,
 \end{equation}
+
+Where $x_{i}$ is a single experimental measurement, or color magnitude in our case. Variable $\mu$ is the population mean, $\bar{x}$ is the sample mean, and $s$ is an estimator for standard deviation $\sigma$, where $\sigma$ is not known due to small sample size $N$ \citep{student-t}. The sample variance $s$ for a Student's t-distribution explicitly is
+
+\begin{equation}
+    s^2 \equiv \frac{1}{N-1}\sum_{i=1}^{N} (x_{i}-\bar{x})^2
+\end{equation}
+
+The assumption that we do not know the standard deviation $\sigma$ is reasonable given the very few number of stars in a non-negligible number of bins (see Table \ref{table:bin_counts}) for our total sample of $\sim$20,000 stars, and so Student's t distribution is a reasonable choice for our color analysis.
+
+We used the \texttt{scipy.stats.t} module to fit and calculate an average and sample variance from color data, for each spectral and luminosity group bin. After retrieving these two statistics for each bin, we are able to generate a probability function across any artificial range of color magnitudes we may choose. In order to cover most magnitude ranges for WISE/2MASS colors, we have chosen an color magnitude array that is from -0.7 to 1.8 magnitudes, with a step size of 0.025. The step size is smaller than the average photometric uncertainty of 0.10--0.15 magnitudes. 
+
+For example the resulting color-probability for each luminosity and spectral class bin for $J-W{2}$ is visualized in Figure \ref{fig:median_jw2}. The average value from the distributions calculated for each bin with star counts greater than 4, for colors \jwtwo and \jwtwo is listed in Tables \ref{table:color_avgs}. We have dedicated these tables and figures to display \jwtwo and \jwtwo because these are the two colors for which we have visually identified the greatest color separation for GK-type stars, and will further explore their importance in Chapter \ref{chap:3}.
+
 % FIGURES ========================================
 
 \begin{figure}[t]
+    \label{fig:spt_michigan_hist}
     \centering
         \includegraphics[width=1.0\textwidth]{Figures/populations/hist-spt-count.pdf}
 \caption{The distribution of the Michigan Spectral Catalogs as a function of spectral type on the horizontal axis, after the removal of peculiar and/or mixed spectral types.  The different colors correspond to the different luminosity classes.  From bottom to top: V (red), IV (yellow), III (purple), II (cyan) and I (green).  The gaps in the histograms at particular spectral types (e.g. F1, K7-K9) indicate that this spectral type was not used for typing in the Michigan Spectral Catalogs.}
@@ -40,12 +53,14 @@ A Student's t-distribution is simply defined as the following:
 \begin{figure}
     \centering
     \includegraphics[width=1.0\textwidth]{Figures/populations/hist-b-vs-count.png}
-    \caption{A histogram of spectra counts across all galactic latitudes ($b$) from the Michigan Spectral Atlas, which was filtered as described according to Section \ref{sec:clean_michigan}. There is no overdensity of either the two individual luminosity groups (dwarfs vs giant).}
+    \caption{A histogram of spectra counts across all galactic latitudes ($b$) from the Michigan Spectral Atlas, which was filtered as described according to Chapter \ref{sec:cross-matching}. There is no large discrepancy of either luminosity groups, where dwarfs are luminosity class V and giants are anything else.}
     \label{fig:b-vs-count}
 \end{figure}
 
 \begin{figure*}[t]
 \centering
+\label{fig:median_stick_bar_jw2}
 \includegraphics[width=1.0\textwidth,clip=true]{Figures/subtype_bar/SPT_J-W2.png}
-\caption{The color of stars in the Michigan Spectral Catalogs as a function of spectral type on the horizontal axis, and \jwtwo on the vertical axis, after the removal of peculiar and/or mixed spectral types (see ${\S}$3.1). The different colors correspond to the different luminosity classes -- V (red), IV (yellow), III (purple), II (cyan) and I (green).  The vertical error bars generally correspond to the robust standard deviation of the \jwtwo color of stars within a given spectral type and luminosity class, unless there are only three or fewer stars, in which the error bars represent a standard deviation or range. (see ${\S}$3.2).}
+\caption{The color of stars in the Michigan Spectral Catalogs as a function of spectral type on the horizontal axis, and \jwtwo on the vertical axis, after the removal of peculiar and/or mixed spectral types (see Chapter \ref{sec:cross-matching}). The different colors correspond to the different luminosity classes -- V (red), IV (yellow), III (purple), II (cyan) and I (green).  The vertical error bars generally correspond to the robust standard deviation of the \jwtwo color of stars within a given spectral type and luminosity class, unless there are only three or fewer stars, in which the error bars represent a standard deviation or range (see Chapter \ref{subsec:median_stats}, and Tables \ref{table:color_medians}).}
+\label{fig:median_jw2}
 \end{figure*}

@@ -1,4 +1,4 @@
-\chapter{Significance of \jwone and \jwtwo for GK stars}\label{chap:sig_of_colors}
+\chapter{Significance of \jwone and \jwtwo for GK stars}\label{chap:3}
 % TEXT ==========================================
 
 We identify by eye that \jwone and \jwtwo present a significant separation in color between dwarfs and (sub-)giants for all G and early K spectral types. This trend in \jwone and \jwtwo with luminosity class for G and early K dwarfs may extend to later spectral types (M stars), but the limited number of M dwarfs in the Michigan Spectral Atlases precludes a robust determination.
@@ -17,11 +17,12 @@ We have considered two possibilities for this observable difference in the infra
 We present two potential applications of using the dwarf-giant difference in colors \jwone and \jwtwo, reduced proper motions in J-band (\ref{subsec:RPM}) and combining color probabilities with a galactic model ()
 
 \subsection{Reduced proper motions} \label{subsec:RPM}
-All of the Michigan stars are HD stars with GAIA parallaxes and proper motions.  We cross-correlate the Michigan catalog with the GAIA First Data Release \citep[]{gaia1,gaia2,Lindegren2016}.  In Figure 8, we plot the standard reduced proper motion (${rpm}_J$) for the Michigan stars as a function of \jwtwo for spectral types from G0--K5 and luminosity class, using GAIA proper motions.  In Figure 9, we plot the Absolute J-band magnitudes for the Michigan stars as function of \jwtwo for spectral types from G0--K5 and luminosity class, using GAIA parallaxes.3
-\subsection{Galactic population model} \label{subsec:galactic_model}
-All of the Michigan stars are HD stars with GAIA parallaxes and proper motions.  We cross-correlate the Michigan catalog with the GAIA First Data Release \citep[]{gaia1,gaia2,Lindegren2016}.  In Figure 8, we plot the standard reduced proper motion (${rpm}_J$) for the Michigan stars as a function of \jwtwo for spectral types from G0--K5 and luminosity class, using GAIA proper motions.  In Figure 9, we plot the Absolute J-band magnitudes for the Michigan stars as function of \jwtwo for spectral types from G0--K5 and luminosity class, using GAIA parallaxes.
+
+All of the Michigan stars are HD stars with GAIA parallaxes and proper motions.  We cross-correlate the Michigan catalog with the GAIA First Data Release \citep[]{gaia1,gaia2,Lindegren2016}.  In Figure 8, we plot the standard reduced proper motion (${rpm}_J$) for the Michigan stars as a function of \jwtwo for spectral types from G0--K5 and luminosity class, using GAIA proper motions. In Figures \ref{fig:absolute_j_jw1} and \ref{fig:absolute_j_jw2}, we plot the Absolute J-band magnitudes for the Michigan stars as function of \jwtwo for spectral types from G0--K5 and luminosity class, using GAIA parallaxes.
 
 From these plots, we see that the classification success rate of the Michigan catalog is high, but not perfect.
+
+\subsection{Galactic population model} \label{subsec:galactic_model}
 
 We are considering also further finessing the color-luminosity class probability by relating color with position in the sky using a a synthetic galactic model of the Milky Way called TRILEGAL, but leave this for future work. Incorporating giant/dwarf population statistics, such as luminosity class number density as a function sky area, should help to further improve color as a tool to predict luminosity class, and for application to future surveys.
 
@@ -32,6 +33,7 @@ In particular, our priors are the mean and robust standard deviation of colors o
 % FIGURES ==========================================
 
 \begin{figure*}[t]
+\label{fig:absolute_j_jw1}
   \begin{center}
       \includegraphics[width=1.0\textwidth,clip=true]{Figures/absolute_j/plot-J-W2-G0-K5-b15-0.png}
  \end{center}
@@ -39,6 +41,8 @@ In particular, our priors are the mean and robust standard deviation of colors o
 \end{figure*}
 
 \begin{figure*}[t]
+    \label{fig:absolute_j_jw2}
+
   \begin{center}
       \includegraphics[width=1.0\textwidth,clip=true]{Figures/absolute_j/plot-J-W2-G0-K5-b15-1.png}
  \end{center}
